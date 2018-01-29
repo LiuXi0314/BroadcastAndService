@@ -16,13 +16,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initReceiver();
+        initDynamicReceiver();//注册动态广播
         findViewById(R.id.sendDynamicBroad).setOnClickListener(this);
         findViewById(R.id.sendStaticBroad).setOnClickListener(this);
         findViewById(R.id.sendOrderlyBroad).setOnClickListener(this);
     }
 
-    private void initReceiver() {
+    //注册动态广播
+    private void initDynamicReceiver() {
         mReceiver = new DynamicBroadCastReceiver();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Keys.DynamicReceiver);
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sendBroadcast(intent);
     }
 
-
+    //Android O 以上版本无法使用静态广播,此方法无效,请替换为动态广播调试
     private void sendStaticBroadCast() {
         Intent intent = new Intent(Keys.StaticReceiver);
         intent.putExtra("msg", "你就站在那不要动，我去买几个橘子");
@@ -44,12 +45,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
+    //Android O 以上版本无法使用静态广播,此方法无效,请替换为动态广播调试
     private void sendOrderlyBroadCast() {
         Intent intent = new Intent();
         intent.setAction(Keys.OrderlyReceiver);
         intent.putExtra("msg", "按照大小个排序报数： ");
         sendBroadcast(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mReceiver != null) {
+            //取消注册(动态广播需要取消注册,否则会有异常报出)
+            unregisterReceiver(mReceiver);//mReceiver不可为null
+        }
     }
 
     @Override
@@ -65,12 +75,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mReceiver != null) {
-            //取消注册
-            unregisterReceiver(mReceiver);
-        }
-    }
 }
