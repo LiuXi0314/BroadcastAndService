@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.sendDynamicBroad).setOnClickListener(this);
         findViewById(R.id.sendStaticBroad).setOnClickListener(this);
         findViewById(R.id.sendOrderlyBroad).setOnClickListener(this);
+        findViewById(R.id.startService).setOnClickListener(this);
     }
 
     //注册动态广播
@@ -53,6 +54,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sendBroadcast(intent);
     }
 
+
+    private void startService() {
+
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -71,6 +77,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             sendStaticBroadCast();
         } else if (id == R.id.sendOrderlyBroad) {
             sendOrderlyBroadCast();
+        } else if (id == R.id.startService) {
+            startService();
         }
 
     }
