@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lx.broadcastandservice.MainActivity">
+    tools:context="com.lx.broadcastandservice.BroadcastActivity">
 
     <Button
         android:id="@+id/sendDynamicBroad"
@@ -20,7 +20,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032"/>
+        app:layout_constraintVertical_bias="0.017"
+        app:layout_constraintHorizontal_bias="0.034"/>
 
     <Button
         android:id="@+id/sendStaticBroad"
@@ -35,8 +36,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158"
-        app:layout_constraintHorizontal_bias="0.502"/>
+        app:layout_constraintVertical_bias="0.175"
+        app:layout_constraintHorizontal_bias="0.032"/>
 
     <Button
         android:id="@+id/sendOrderlyBroad"
@@ -51,24 +52,24 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.298"
-        app:layout_constraintHorizontal_bias="0.502"/>
+        app:layout_constraintVertical_bias="0.331"
+        app:layout_constraintHorizontal_bias="0.033"/>
 
     <Button
-        android:id="@+id/startService"
+        android:id="@+id/toService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:text="Start Service"
+        android:text="To learn Service"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.457"
-        />
+        app:layout_constraintVertical_bias="0.017"
+        app:layout_constraintHorizontal_bias="1.0"/>
 
 
 </android.support.constraint.ConstraintLayout>

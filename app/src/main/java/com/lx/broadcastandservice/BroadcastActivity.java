@@ -8,7 +8,10 @@ import android.view.View;
 
 import com.lx.broadcastandservice.receiver.DynamicBroadCastReceiver;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+/**
+ * BroadcastReceiver
+ */
+public class BroadcastActivity extends AppCompatActivity implements View.OnClickListener {
 
     private DynamicBroadCastReceiver mReceiver;
 
@@ -20,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.sendDynamicBroad).setOnClickListener(this);
         findViewById(R.id.sendStaticBroad).setOnClickListener(this);
         findViewById(R.id.sendOrderlyBroad).setOnClickListener(this);
-        findViewById(R.id.startService).setOnClickListener(this);
+        findViewById(R.id.toService).setOnClickListener(this);
     }
 
     //注册动态广播
@@ -55,10 +58,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private void startService() {
-
-    }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -77,8 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             sendStaticBroadCast();
         } else if (id == R.id.sendOrderlyBroad) {
             sendOrderlyBroadCast();
-        } else if (id == R.id.startService) {
-            startService();
+        } else if (id == R.id.toService) {
+            startActivity(new Intent(this, ServiceActivity.class));
         }
 
     }
