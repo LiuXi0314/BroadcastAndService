@@ -27,6 +27,7 @@ public class SimpleService extends Service {
 
     @Override
     public void onCreate() {
+
         super.onCreate();
         Log.d(TAG, "onCreate");
     }
@@ -60,7 +61,7 @@ public class SimpleService extends Service {
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
-        Log.d(TAG, "onTrimMemory"+level);
+        Log.d(TAG, "onTrimMemory" + level);
     }
 
     @Override
